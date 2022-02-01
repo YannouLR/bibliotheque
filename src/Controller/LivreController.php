@@ -29,6 +29,7 @@ class LivreController
         $repository = new EntityRepository($em, new ClassMetadata("App\Entity\Livre"));
 
         $aLivre =$repository->findAll();
+       
     }
 
     public function add()

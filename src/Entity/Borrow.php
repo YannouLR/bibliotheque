@@ -2,15 +2,24 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\SQL\Parser\Visitor;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
 
 class Borrow{
 
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="editor_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="User_id", referencedColumnName="id")
      */
 
     private User $visitor;
@@ -22,7 +31,7 @@ class Borrow{
 
     private Livre $livre;
 
-    public function __contruct(User $visitor, Livre $livre)
+    public function __construct(User $visitor, Livre $livre)
     {
         $this->visitor = $visitor;
 
