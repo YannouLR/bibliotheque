@@ -28,8 +28,13 @@ class LivreController
     {
         $em = Em::getEntityManager();
         $repository = new EntityRepository($em, new ClassMetadata("App\Entity\Livre"));
+        $repoUser = new EntityRepository($em, new ClassMetadata("App\Entity\User"));
 
         $aLivre =$repository->findAll();
+        $oAuthor = $repoUser->findAll(); 
+        include __DIR__ . "/../Vues/Livres/showAll.php";
+
+        
        
     }
 
