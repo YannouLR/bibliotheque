@@ -61,22 +61,24 @@ class Livre{
      */
 
     private User $author;
-
-    public function __construct(string $title, string $resume, int $num_ISBN, int $ed, int $ee, User $editor, User $author)
     
+    /**
+     * @ORM\Column(type="integer")
+    */
+    
+    private int $stock;
 
+    public function __construct(string $title, string $resume, int $num_ISBN, int $ed, int $ee, User $editor, User $author, int $stock)
     
     {
         $this->title = $title;
-
-        
         $this->resume = $resume;
-        
         $this->num_ISBN = $num_ISBN;
         $this->exemplaire_dispo = $ed;
         $this->exemplaire_emprunte = $ee;
         $this->editor = $editor;
         $this->author = $author;
+        $this->stock = $stock;
     }
 
     
@@ -245,6 +247,30 @@ class Livre{
     public function setAuthor(User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stock
+     *
+     * @return int
+     */
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set the value of stock
+     *
+     * @param int $stock
+     *
+     * @return self
+     */
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }

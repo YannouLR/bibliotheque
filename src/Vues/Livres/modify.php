@@ -19,6 +19,7 @@
         <input type="number" name="exemplaire_emprunte" value="<?= $livreId->getExemplaireEmprunte()?>">
         <input type="text" name="editor" value="<?= $livreId->getEditor()?>">
         <input type="text" name="author" value="<?= $livreId->getAuthor()?>">
+        <input type="number" name="stock" value="<?= $livreId->getStock()?>">
         <input type="submit" value="Modifier un Livre">
     </form>
 </body>

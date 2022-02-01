@@ -20,7 +20,8 @@ class LivreController
         'exemplaire_dispo',
         'exemplaire_emprunte',
         "editor",
-        "author"
+        "author",
+        'stock'
     ];
 
     public function showAll()
@@ -67,7 +68,7 @@ class LivreController
             }
 
             
-        $aLivre = new Livre($_POST['title'],$_POST['resume'],$_POST['num_ISBN'],$_POST['exemplaire_dispo'],$_POST['exemplaire_emprunte'], $editor, $author);
+        $aLivre = new Livre($_POST['title'],$_POST['resume'],$_POST['num_ISBN'],$_POST['exemplaire_dispo'],$_POST['exemplaire_emprunte'], $editor, $author, $_POST['stock']);
 
         $em->persist($aLivre);
 
@@ -127,7 +128,10 @@ class LivreController
             if ($_POST["author"] !== $livreId->getAuthor()->getId()) {
                 $oAuthor = $RepoUser->find($_POST["author"]);
                 $livreId->setAuthor($oAuthor);
-            }     
+            }
+            if ($_POST["stock"] !== $livreId->getStock()) {
+                $livreId->setStock($_POST["stock"]);
+            }       
                   
             $em->persist($livreId);
             $em->flush();

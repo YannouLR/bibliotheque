@@ -19,6 +19,7 @@
         <input type="number" name="exemplaire_emprunte" placeholder="exemplaire emprunter">
         <input type="text" name="editor" placeholder="editeur">
         <input type="text" name="author" placeholder="auteur">
+        <input type="text" name="stock" placeholder="stock">
         <input type="submit" value="Ajouter un Livre">
     </form>
 </body>
