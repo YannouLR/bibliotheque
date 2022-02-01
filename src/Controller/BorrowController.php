@@ -48,6 +48,17 @@ class BorrowController
             $user = $repoUser->find($_POST['user']);
             $repoLivre = new EntityRepository($em, new ClassMetadata("App\Entity\Livre"));
             $livre = $repoLivre->find($_POST['livre']);
+
+            if (!$user) {
+                echo "L'utilisateur n'existe pas!!";
+                include __DIR__ . "/../Vues/Borrow/add.php";
+                exit;
+            }   
+            if (!$livre) {
+                echo "Le livre n'existe pas!!";
+                include __DIR__ . "/../Vues/Borrow/add.php";
+                exit;
+            }   
             
         $aBorrow = new Borrow($user, $livre);
 

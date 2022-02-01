@@ -46,6 +46,17 @@ class NoteController
         $livre = $RepoLivre->find($_POST['livre_id']);
         $editeur = $RepoUser->find($_POST['editeur_id']);
 
+        if (!$livre) {
+            echo "Le livre n'existe pas!!";
+            include __DIR__ . "/../Vues/Note/add.php";
+            exit;
+        }   
+        if (!$editeur) {
+            echo "L'editeur n'existe pas!!";
+            include __DIR__ . "/../Vues/Note/add.php";
+            exit;
+        }   
+
         $aNote = new Note($_POST['note'], $_POST['comment'], $editeur, $livre);
 
         $em->persist($aNote);
