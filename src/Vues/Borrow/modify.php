@@ -12,8 +12,8 @@
 </head>
 <body>
     <form method="POST" action=<?="/borrow/$id"?>>
-        <input type="number" name="livre" value="<?= $userId->getLivre()?>" />
-        <input type="number" name="user" value="<?= $livreId->getVisitor()?>" />
+        <input type="number" name="livre" value="<?= $borrowId->getLivre()->getId()?>" />
+        <input type="number" name="user" value="<?= $borrowId->getVisitor()->getId() ?>" />
         <input type="submit" value="Modifier un emprunt">
     </form>
 </body>

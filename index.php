@@ -26,7 +26,14 @@ $router->get("/deleteLivre/:id", "App\Controller\LivreController@delete");
 
 $router->get("/borrow", "App\Controller\BorrowController@add");
 $router->post("/borrow", "App\Controller\BorrowController@add");
-$router->post("/borrow/:id", "App\Controller\BorrowController@modify");
 $router->get("/borrow/:id", "App\Controller\BorrowController@modify");
+$router->post("/borrow/:id", "App\Controller\BorrowController@modify");
+$router->get("/deleteborrow/:id", "App\Controller\BorrowController@delete");
+
+$router->get("/note", "App\Controller\NoteController@add");
+$router->post("/note", "App\Controller\NoteController@add");
+$router->get("/note/:id", "App\Controller\NoteController@modify");
+$router->post("/note/:id", "App\Controller\NoteController@modify");
+$router->get("/deletenote/:id", "App\Controller\NoteController@delete");
 
 $router->run();

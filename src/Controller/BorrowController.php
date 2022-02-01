@@ -88,13 +88,13 @@ class BorrowController
             }
             
 
-            if ($_POST["user"] !== $userId->getVisitor()->getId()) {
+            if ($_POST["user"] !== $borrowId->getVisitor()->getId()) {
                 $oUser = $repoUser->find($_POST["user"]);
-                $userId->setVisitor($oUser);
+                $borrowId->setVisitor($oUser);
             }
-            if ($_POST["livre"] !== $userId->getLivre()->getId()) {
+            if ($_POST["livre"] !== $borrowId->getLivre()->getId()) {
                 $oLivre = $repoLivre->find($_POST["livre"]);
-                $borrowIs->setLivre($oLivre);
+                $borrowId->setLivre($oLivre);
             }     
                   
             $em->persist($borrowId);
