@@ -72,7 +72,7 @@ class Livre{
         
         $this->resume = $resume;
         
-        $this->property = $num_ISBN;
+        $this->num_ISBN = $num_ISBN;
         $this->exemplaire_dispo = $ed;
         $this->exemplaire_emprunte = $ee;
         $this->editor = $editor;
